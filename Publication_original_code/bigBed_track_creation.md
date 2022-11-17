@@ -2,8 +2,8 @@
 BigBed files were created according to instructions by UCSC at https://genome.ucsc.edu/goldenPath/help/bigBed.html .  
 Color codes follow UCSC color coding https://genome.ucsc.edu/goldenPath/help/hgCnvColoring.html .
 
-Input files: gzipped and tabix/indexed vcfs with clean samples and high-quality subset of structural variants, split by case-control status
-
+_Input files_: gzipped and tabix/indexed vcfs with clean samples and high-quality subset of structural variants, split by case-control status
+_Output files_: One bigBed file per phenotype-status
 ```
 ##Fetch chrom sizes (UCSC binary)
 fetchChromSizes hg38 > hg38.chrom.sizes
