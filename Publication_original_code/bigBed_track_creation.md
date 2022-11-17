@@ -26,7 +26,9 @@ for PHENO in LBD FTD; do
         awk '{printf "%.2f%\n",$10*100}' tmp10.txt > tmp11.txt #Make INFO field as "SVTYPE_AF(rounded % two decimals)_QUAL"
         paste tmp10.txt tmp11.txt > tmp12.txt
         awk '$4=$12"_AF="$14"_QUAL="$5' tmp12.txt > tmp13.txt
-        cut -d " " -f1-13 tmp13.txt > ${PHENO}_${STATUS}_analyzed.bed
+        awk '$4=$12"_AF="$14"_QUAL="$5' tmp12.txt > tmp13.txt
+        awk '$2=$2-1' tmp13.txt tmp13.txt > tmp14.txt #Make 0-based bed by substracting 1 from POS
+        cut -d " " -f1-13 tmp14.txt > ${PHENO}_${STATUS}_analyzed.bed
         sort -k1,1 -k2,2n ${PHENO}_${STATUS}_analyzed.bed -o ${PHENO}_${STATUS}_analyzed.bed #Sort bed file
         bedToBigBed  -as=fieldnames.as -type=bed9+4 ${PHENO}_${STATUS}_analyzed.bed hg38.chrom.sizes ${PHENO}_${STATUS}_analyzed.bb #Make bed into bigbed file
     done
