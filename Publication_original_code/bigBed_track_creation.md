@@ -8,9 +8,6 @@ _Output files_: One bigBed file per phenotype-status
 ##Fetch chrom sizes (UCSC binary)
 fetchChromSizes hg38 > hg38.chrom.sizes
 
-##Autosql file is same for all bigbeds, file template from UCSC
-cat fieldnames.as
-
 ##Create bigbeds
 for PHENO in LBD FTD; do
   for STATUS in cases controls; do
@@ -35,4 +32,26 @@ for PHENO in LBD FTD; do
     done
 done
     
+```
+
+Autosql file fieldnames.as
+
+```
+table X
+"Clean samples with high_quality_SVs"
+(
+string  chrom;		"Reference sequence chromosome or scaffold"
+uint    chromStart;	"Start position of feature on chromosome"
+uint    chromEnd;	"End position of feature on chromosome"
+string  name;		"SVTYPE, AF in % and QUAL"
+uint    score;		"QUAL score"
+char[1] strand;		"no strand info"
+uint    thickStart;	"Coding region start"
+uint    thickEnd;	"Coding region end"
+uint  	reserved;	"Green on + strand, Red on - strand"
+float  AF;  "Allele frequency"
+uint    SVLEN;  "Structural variant lenght"
+string  SVTYPE;		"Structural variant type"
+string	ID;	"Structural variant ID"
+)
 ```
