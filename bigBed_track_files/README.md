@@ -7,16 +7,16 @@ Structural variants and samples included are of the filtered, high-quality subse
 # Usage in UCSC genome browser
 BigBed tracks can be used in UCSC genome browser in My Data > Custom tracks and pasting the line(s) of choice to URL box
 
-LBD cases:
+LBD cases:  
 track name="LBD cases" itemRgb=On db=hg38 visibility=3 bigDataUrl=https://github.com/kkaivola/LBD_FTD_Structural_variants/blob/main/bigBed_track_files/LBD_cases_analyzed.bb?raw=true type=bigBed
 
-LBD controls:
+LBD controls:  
 track name="LBD controls" itemRgb=On db=hg38 visibility=3 bigDataUrl=https://github.com/kkaivola/LBD_FTD_Structural_variants/blob/main/bigBed_track_files/LBD_controls_analyzed.bb?raw=true type=bigBed
 
-FTD/ALS cases:
+FTD/ALS cases:  
 track name="FTD cases" itemRgb=On db=hg38 visibility=3 bigDataUrl=https://github.com/kkaivola/LBD_FTD_Structural_variants/blob/main/bigBed_track_files/FTD_cases_analyzed.bb?raw=true type=bigBed
 
-FTD/ALS controls:
+FTD/ALS controls:  
 track name="FTD controls" itemRgb=On db=hg38 visibility=3 bigDataUrl=https://github.com/kkaivola/LBD_FTD_Structural_variants/blob/main/bigBed_track_files/FTD_controls_analyzed.bb?raw=true type=bigBed
 
 # Usage in Ensembl genome browser
