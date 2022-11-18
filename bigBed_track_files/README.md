@@ -5,7 +5,7 @@ This folder contains four bigBed files that contain information of structural va
 Structural variants and samples included are of the filtered, high-quality subset. Tracks can only be used in **hg38/GRCh38**
 
 # Usage in UCSC genome browser
-BigBed tracks can be used in UCSC genome browser in My Data > Custom tracks and pasting the line(s) of choice to URL box
+BigBed tracks can be used in UCSC genome browser in My Data > Custom tracks and pasting the line(s) of choice to URL box (starting from track name and ending to type=bigBed)
 
 LBD cases:  
 track name="LBD cases" itemRgb=On db=hg38 visibility=3 bigDataUrl=https://github.com/kkaivola/LBD_FTD_Structural_variants/blob/main/bigBed_track_files/LBD_cases_analyzed.bb?raw=true type=bigBed
