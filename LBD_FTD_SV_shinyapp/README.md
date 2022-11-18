@@ -6,7 +6,7 @@ The Shiny app displays data tables and prerendered images of structural variants
 
 # Usage
 
-1. Download the Shiny app folder in this directory to your computer, do not change internal directory order
+1. Download the compressed Shiny app folder from this directory to your computer, do not change internal directory order or create new directories while uncompressing
 2. Open app.R
 3. Make the shinyapp folder into your working directory 
 4. Make sure you have the right R packages and versions to run the app (see session info below)
