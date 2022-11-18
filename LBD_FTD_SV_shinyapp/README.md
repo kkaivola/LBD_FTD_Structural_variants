@@ -1,6 +1,6 @@
 # Background
 
-This Shiny app includes structural variants that were within +1 Mb of 50 neurodegenerative disease associated genes. The structural variants are mapped and filtered by GATK-SV and include thus variants outside the high-quality subset.
+This Shiny app includes structural variants that were within +1 Mb of 50 neurodegenerative disease associated genes. The structural variants are mapped and filtered by GATK-SV and include therefore variants also outside the high-quality subset analyzed in GWAS.
 
 The Shiny app displays data tables and prerendered images of structural variants.
 
