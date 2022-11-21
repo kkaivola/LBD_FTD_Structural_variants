@@ -6,6 +6,9 @@ library(tidyverse)
 library(ggplot2)
 library(scales)
 
+
+##########LBD and AD
+##########
 #Import data
 our <- read.delim("TPCN1_analyzed_snps_indels_glm.txt")
 belenguez <- read.delim("35379992-GCST90027158-MONDO_0004975.h._TPCN1_SNPs.tsv")
@@ -51,3 +54,45 @@ print(ggplot(df, aes(x=beta, y=beta_our)) +
         xlab("TPCN1 locus beta in AD") +
         ylab("TPCN1 locus beta in LBD") +
         ylim(-0.4,0.4))
+
+
+
+
+##########LBD and PD
+##########
+#Import data
+our <- read.delim("TPCN1_analyzed_snps_indels_glm.txt")
+nalls <- read.delim("nallsEtAl2019_excluding23andMe_TPCN1_LD_block.TIDY.hg38.txt")
+
+#Merge dfs by position first
+df <- merge(our, nalls, by.x="POS", by.y="POS_hg38", how="union")
+
+#Harmonize allele for which is tested if needed
+print(table(df$ALT==df$EffectAllele))
+print(table(df$REF==df$OtherAllele))
+##Alleles match, no need to harmonize!
+
+#Calculate beta for our data 
+df$beta_our <- log(df$OR)
+
+#Create variable that shows only suggestive p value variants
+df$suggestive <- ifelse((df$P < 0.00001 | df$PD.p < 0.00001), TRUE, FALSE)
+
+##Correlation tests
+cor1 <- cor.test(df$beta_our, df$PD.beta, 
+                 method = "pearson")
+print(cor1)
+
+#Plot
+print(ggplot(df, aes(x=PD.beta, y=beta_our)) +
+        geom_point(aes(color=suggestive)) + 
+        scale_color_manual(values = c('black', 'red')) +
+        theme_bw() + 
+        theme(legend.position="none") +
+        geom_smooth(se = T, method = lm) +
+        geom_vline(xintercept = 0, linetype = 2) + 
+        geom_hline(yintercept = 0, linetype = 2) +
+        xlab("TPCN1 locus beta in PD") +
+        ylab("TPCN1 locus beta in LBD") +
+        ylim(-0.4,0.4))
+
