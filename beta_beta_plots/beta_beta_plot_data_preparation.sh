@@ -1,5 +1,8 @@
 #!/bin/bash
 
+########LBD and AD
+########
+
 #Make a new directory
 mkdir /data/ALS_50k/karri/LBD_FTD_SV_project/beta_beta_plot
 
@@ -33,3 +36,15 @@ echo "number of searched SNPs:"
 wc -l TPCN1_analyzed_snps_indels.txt
 echo "Number of found SNPs"
 wc -l 35379992-GCST90027158-MONDO_0004975.h._TPCN1_SNPs.tsv
+
+
+
+
+
+########LBD and PD
+########
+
+#Extract only TPCN1 LD block from Nalls et al PD summary stats (no 23andMe, remapped to hg38)
+awk '(NR==1 || ($1 == 12 && $10 > 113150000 && $10 < 113350000))' nallsEtAl2019_excluding23andMe_allVariants.TIDY.hg38.txt > nallsEtAl2019_excluding23andMe_TPCN1_LD_block.TIDY.hg38.txt
+
+#ID formatting matches
