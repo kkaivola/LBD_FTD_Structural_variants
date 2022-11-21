@@ -3,7 +3,7 @@
 #Make a new directory
 mkdir /data/ALS_50k/karri/LBD_FTD_SV_project/beta_beta_plot
 
-##Download Belenguez harmonized summary statistics
+#Download Belenguez harmonized summary statistics
 
 wget http://ftp.ebi.ac.uk/pub/databases/gwas/summary_statistics/GCST90027001-GCST90028000/GCST90027158/harmonised/35379992-GCST90027158-MONDO_0004975.h.tsv.gz
 gunzip  35379992-GCST90027158-MONDO_0004975.h.tsv.gz
