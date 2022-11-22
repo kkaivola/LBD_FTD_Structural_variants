@@ -2,7 +2,6 @@ library("Gviz")
 library("TxDb.Hsapiens.UCSC.hg38.knownGene")
 library("tidyverse")
 
-setwd("~/Documents/LBD_FTD_project_2021")
 
 #Import files and do formatting
 LBD <- read.delim("LBD_all_info_unfiltered_with_CADDSV_genehancer.txt")
