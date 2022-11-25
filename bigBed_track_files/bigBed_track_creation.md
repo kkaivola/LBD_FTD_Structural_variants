@@ -11,7 +11,7 @@ fetchChromSizes hg38 > hg38.chrom.sizes
 ##Create bigbeds
 for PHENO in LBD FTD; do
   for STATUS in cases controls; do
-        bcftools query -f '%CHROM\t%POS\t%END\t"INFO"\t%QUAL\t"."\t%POS\t%END\t"RGB"\t%AF\t%SVLEN\t%SVTYPE\t%ID\n' /data/ALS_50k/karri/LBD_FTD_SV_project/filtered_SV_GATKSV_style_barplots/${PHENO}_${STATUS}_filtered_SV_Samples_GQ300_to_missing.vcf.gz > tmp_${PHENO}_${STATUS}_analyzed.bed #Extract info per variant
+        bcftools query -f '%CHROM\t%POS\t%END\t"INFO"\t%QUAL\t"."\t%POS\t%END\t"RGB"\t%AF\t%SVLEN\t%SVTYPE\t%ID\n' /data/ALS_50k/karri/LBD_FTD_SV_project/notebook_v6/clean_high_quality_vcfs/${PHENO}_${STATUS}_high_quality_subset_clean_GQ300missing_all_chr.vcf.gz > tmp_${PHENO}_${STATUS}_analyzed.bed #Extract info per variant
         sed -i 's/"//g' tmp_${PHENO}_${STATUS}_analyzed.bed #Remove quote marks
         awk '($10 > 0)' tmp_${PHENO}_${STATUS}_analyzed.bed > tmp.txt #Filter out variants with AF = 0
         awk '{if($12=="INS") {$3=$2 ; $8=$2; print} else{print $0}}' tmp.txt > tmp2.txt #If SVTYPE is INS, make END=POS
@@ -25,7 +25,6 @@ for PHENO in LBD FTD; do
         awk '{if($9 == "RGB") {$9="128,128,128"; print} else{print $0}}' tmp9.txt > tmp10.txt #Add color code
         awk '{printf "%.2f%\n",$10*100}' tmp10.txt > tmp11.txt #Make INFO field as "SVTYPE_AF(rounded % two decimals)_QUAL"
         paste tmp10.txt tmp11.txt > tmp12.txt
-        awk '$4=$12"_AF="$14"_QUAL="$5' tmp12.txt > tmp13.txt
         awk '$4=$12"_AF="$14"_QUAL="$5' tmp12.txt > tmp13.txt
         awk '$2=$2-1' tmp13.txt > tmp14.txt #Make 0-based bed by substracting 1 from POS
         cut -d " " -f1-13 tmp14.txt > ${PHENO}_${STATUS}_analyzed.bed
