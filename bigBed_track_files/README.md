@@ -20,7 +20,7 @@ FTD/ALS controls:
 track name="FTD controls" itemRgb=On db=hg38 visibility=3 bigDataUrl=https://github.com/kkaivola/LBD_FTD_Structural_variants/blob/main/bigBed_track_files/FTD_controls_analyzed.bb?raw=true type=bigBed
 
 # Usage in Ensembl genome browser
-BigBed tracks can be used in Ensembl location tab (location of your choice) by going Add/Remove Tracks > Personal Data tab > Add name of your choice paste file URL(s) of choice and add file type bigBed
+BigBed tracks can be used in Ensembl location tab (location of your choice) by going Add/Remove Tracks > Personal Data tab > Add name of your choice paste file URL of choice and add file type bigBed
 
 LBD cases: https://github.com/kkaivola/LBD_FTD_Structural_variants/blob/main/bigBed_track_files/LBD_cases_analyzed.bb?raw=true
 
